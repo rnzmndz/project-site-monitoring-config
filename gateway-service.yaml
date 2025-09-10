@@ -7,16 +7,16 @@ springdoc:
 
 spring:
   cloud:
-  gateway:
-    routes:
-      - id: account-service
-        uri: lb://account-service
-        predicates:
-            - Path=/account/**
-      - id: account-service-swagger
+    gateway:
+      routes:
+        - id: account-service
           uri: lb://account-service
           predicates:
-            - Path=/api-docs/account-service
-          filters:
-            - RewritePath=/api-docs/account-service, /v3/api-docs
+              - Path=/account/**
+        - id: account-service-swagger
+            uri: lb://account-service
+            predicates:
+              - Path=/api-docs/account-service
+            filters:
+              - RewritePath=/api-docs/account-service, /v3/api-docs
             
