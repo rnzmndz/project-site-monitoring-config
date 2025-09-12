@@ -19,4 +19,14 @@ spring:
             - Path=/api-docs/account-service
           filters:
             - RewritePath=/api-docs/account-service, /v3/api-docs
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+        - id: auth-service-swagger
+          uri: lb://auth-service
+          predicates:
+            - Path=/api-docs/auth-service
+          filters:
+            - RewritePath=/api-docs/auth-service, /v3/api-docs
             
