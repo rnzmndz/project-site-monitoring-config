@@ -1,18 +1,12 @@
 server:
   address: 0.0.0.0
 
-services:
-  eureka-server:
-    url: ${DISCOVERY_URL:http://localhost:8761/eureka/}
-  # keycloak:
-  #   url: ${KEYCLOAK_URL:http://127.0.0.1:8180}
-
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: ${services.eureka-server.url}
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
   instance:
     prefer-ip-address: true
 
@@ -24,3 +18,4 @@ management:
   endpoint:
     health:
       show-details: always
+
