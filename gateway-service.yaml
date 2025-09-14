@@ -2,11 +2,11 @@ springdoc:
   swagger-ui:
     path: /
     urls:
-      - name: Account Service
-        url: /api-docs/account-service
       - name: Auth Service
         url: /api-docs/auth-service
-
+      - name: Account Service
+        url: /api-docs/account-service
+      
 spring:
   cloud:
     gateway:
