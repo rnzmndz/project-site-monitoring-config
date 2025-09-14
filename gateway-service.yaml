@@ -4,6 +4,8 @@ springdoc:
     urls:
       - name: Account Service
         url: /api-docs/account-service
+      - name: Auth Service
+        url: /api-docs/auth-service
 
 spring:
   cloud:
