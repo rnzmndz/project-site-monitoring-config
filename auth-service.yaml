@@ -16,3 +16,6 @@ spring:
         provider:
           keycloak:
             issuer-uri: ${JWT_ISSUER_URI}
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_URL}/realms/${KC_REALM}
