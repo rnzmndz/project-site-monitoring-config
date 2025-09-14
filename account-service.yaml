@@ -3,6 +3,11 @@ springdoc:
     path: /
 
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${JWT_ISSUER_URI}
   jpa:
     hibernate:
       ddl-auto: create
