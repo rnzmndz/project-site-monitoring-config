@@ -11,7 +11,8 @@ spring:
   cloud:
     gateway:
       default-filters:
-        - TokenRelay
+        - RemoveRequestHeader=Cookie
+        - PreserveHostHeader
       routes:
         - id: account-service
           uri: lb://account-service
@@ -27,10 +28,17 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/auth/**
+          filters:
+            - StripPrefix=1
+            - AddRequestHeader=Authorization, $request.header.Authorization
         - id: auth-service-swagger
           uri: lb://auth-service
           predicates:
             - Path=/api-docs/auth-service
           filters:
             - RewritePath=/api-docs/auth-service, /v3/api-docs
-            
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${JWT_ISSUER_URI}
