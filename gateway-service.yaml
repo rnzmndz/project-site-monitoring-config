@@ -10,8 +10,8 @@ springdoc:
 spring:
   cloud:
     gateway:
-      default-filters:
-        - RemoveRequestHeader=Cookie
+      # default-filters:
+      #   - RemoveRequestHeader=Cookie
       routes:
         - id: account-service
           uri: lb://account-service
@@ -27,9 +27,9 @@ spring:
           uri: lb://auth-service
           predicates:
             - Path=/auth/**
-          filters:
-            - StripPrefix=1
-            - AddRequestHeader=Authorization, $request.header.Authorization
+          # filters:
+          #   - StripPrefix=1
+          #   - AddRequestHeader=Authorization, $request.header.Authorization
         - id: auth-service-swagger
           uri: lb://auth-service
           predicates:
