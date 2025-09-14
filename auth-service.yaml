@@ -1,0 +1,15 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          auth-service: # <-- matches clientRegistrationId
+            client-id: ${KC_CLIENT_ID}
+            client-secret: ${KC_CLIENT_SECRET}
+            authorization-grant-type: client_credentials
+            scope: openid, profile
+        provider:
+          keycloak:
+            token-uri: ${KEYCLOAK_URL}/realms/${KC_REALM}/protocol/openid-connect/token
+            authorization-uri: ${KEYCLOAK_URL}/realms/${KC_REALM}/protocol/openid-connect/auth
+            jwk-set-uri: ${KEYCLOAK_URL}/realms/${KC_REALM}/protocol/openid-connect/certs
