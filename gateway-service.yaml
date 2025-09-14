@@ -12,7 +12,6 @@ spring:
     gateway:
       default-filters:
         - RemoveRequestHeader=Cookie
-        - PreserveHostHeader
       routes:
         - id: account-service
           uri: lb://account-service
