@@ -10,6 +10,8 @@ springdoc:
 spring:
   cloud:
     gateway:
+      default-filters:
+        - TokenRelay
       routes:
         - id: account-service
           uri: lb://account-service
