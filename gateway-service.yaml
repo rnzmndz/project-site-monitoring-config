@@ -1,5 +1,6 @@
 springdoc:
   swagger-ui:
+    urlsPrimaryName: Auth Service
     path: /
     urls:
       - name: Auth Service
