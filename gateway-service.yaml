@@ -13,16 +13,6 @@ spring:
       # default-filters:
       #   - RemoveRequestHeader=Cookie
       routes:
-        - id: account-service
-          uri: lb://account-service
-          predicates:
-            - Path=/account/**
-        - id: account-service-swagger
-          uri: lb://account-service
-          predicates:
-            - Path=/api-docs/account-service
-          filters:
-            - RewritePath=/api-docs/account-service, /v3/api-docs
         - id: auth-service
           uri: lb://auth-service
           predicates:
@@ -36,6 +26,16 @@ spring:
             - Path=/api-docs/auth-service
           filters:
             - RewritePath=/api-docs/auth-service, /v3/api-docs
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/account/**
+        - id: account-service-swagger
+          uri: lb://account-service
+          predicates:
+            - Path=/api-docs/account-service
+          filters:
+            - RewritePath=/api-docs/account-service, /v3/api-docs
   security:
     oauth2:
       resourceserver:
