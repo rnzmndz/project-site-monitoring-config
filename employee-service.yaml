@@ -1,0 +1,23 @@
+springdoc:
+  swagger-ui:
+    path: /
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${JWT_ISSUER_URI}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: ${ACCOUNT_DB_URL:jdbc:postgresql://localhost:5432}/employee_database
+    username: ${ACCOUNT_DB_USER:postgres}
+    password: ${ACCOUNT_DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
