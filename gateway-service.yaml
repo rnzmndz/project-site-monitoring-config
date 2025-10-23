@@ -7,6 +7,8 @@ springdoc:
         url: /api-docs/auth-service
       - name: Account Service
         url: /api-docs/account-service
+      - name: Employee Service
+        url: /api-docs/employee-service
       
 spring:
   cloud:
@@ -37,6 +39,16 @@ spring:
             - Path=/api-docs/account-service
           filters:
             - RewritePath=/api-docs/account-service, /v3/api-docs
+        - id: employee-service
+          uri: lb://employee-service
+          predicates:
+            - Path=/account/**
+        - id: employee-service-swagger
+          uri: lb://employee-service
+          predicates:
+            - Path=/api-docs/employee-service
+          filters:
+            - RewritePath=/api-docs/employee-service, /v3/api-docs
   security:
     oauth2:
       resourceserver:
