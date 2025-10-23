@@ -13,8 +13,8 @@ springdoc:
 spring:
   cloud:
     gateway:
-      # default-filters:
-      #   - RemoveRequestHeader=Cookie
+      default-filters:
+        - RemoveRequestHeader=Cookie
       routes:
         - id: auth-service
           uri: lb://auth-service
