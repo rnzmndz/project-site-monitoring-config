@@ -22,7 +22,7 @@ spring:
             - Path=/auth/**
           filters:
             - PreserveHostHeader
-            - AddRequestHeader=Authorization, $request.header.Authorization
+            # - AddRequestHeader=Authorization, $request.header.Authorization
             
         - id: auth-service-swagger
           uri: lb://auth-service
