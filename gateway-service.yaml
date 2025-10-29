@@ -16,7 +16,10 @@ spring:
       default-filters:
         - RemoveRequestHeader=Cookie
         - PreserveHostHeader
-        - AddRequestHeader=Authorization, $request.header.Authorization
+        - name: AddRequestHeader
+          args:
+            name: Authorization
+            value: "#{request.headers['Authorization']}"
       routes:
         - id: auth-service
           uri: lb://auth-service
