@@ -15,6 +15,8 @@ spring:
     gateway:
       default-filters:
         - RemoveRequestHeader=Cookie
+        - PreserveHostHeader
+        - AddRequestHeader=Authorization, $request.header.Authorization
       routes:
         - id: auth-service
           uri: lb://auth-service
