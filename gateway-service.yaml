@@ -50,10 +50,7 @@ spring:
         - id: employee-service
           uri: lb://employee-service
           predicates:
-            - Path=/api/v1/employees/**
-            - Path=/api/v1/leaves/**
-            - Path=/api/v1/employee-schedules/**
-            - Path=/api/v1/attendances/**
+            - Path=/api/v1/employees/**,/api/v1/leaves/**,/api/v1/employee-schedules/**,/api/v1/attendances/**
         - id: employee-service-swagger
           uri: lb://employee-service
           predicates:
