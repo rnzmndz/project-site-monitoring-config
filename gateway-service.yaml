@@ -57,6 +57,20 @@ spring:
             - Path=/api-docs/employee-service
           filters:
             - RewritePath=/api-docs/employee-service, /v3/api-docs
+            
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+            
   security:
     oauth2:
       resourceserver:
