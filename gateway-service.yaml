@@ -61,7 +61,9 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "https://localhost:4200"
+            allowedOrigins: 
+              - "https://localhost:4200"
+              - "https://app.renzoproject.site"
             allowedMethods:
               - GET
               - POST
