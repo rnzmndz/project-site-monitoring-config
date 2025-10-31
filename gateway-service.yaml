@@ -14,7 +14,7 @@ spring:
   cloud:
     gateway:
       default-filters:
-        - RemoveRequestHeader=Cookie
+        # - RemoveRequestHeader=Cookie
         - PreserveHostHeader
         - name: AddRequestHeader
           args:
