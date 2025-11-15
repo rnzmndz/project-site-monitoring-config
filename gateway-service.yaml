@@ -58,21 +58,6 @@ spring:
           filters:
             - RewritePath=/api-docs/employee-service, /v3/api-docs
             
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: 
-              - "https://localhost:4200"
-              - "https://app.renzoproject.site"
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-            allowedHeaders: "*"
-            allowCredentials: true
-            
   security:
     oauth2:
       resourceserver:
